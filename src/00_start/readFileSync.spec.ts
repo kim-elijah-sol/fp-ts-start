@@ -1,6 +1,6 @@
 import { Left, getOrElse, isLeft, isRight } from "fp-ts/lib/Either";
 import * as fs from "fs";
-import { ReadFileSyncError, readFileSync } from "./readFileSync";
+import { ReadFileSyncException, readFileSync } from "./readFileSync";
 
 describe("readFileSync", () => {
   /**
@@ -21,9 +21,11 @@ describe("readFileSync", () => {
     const result = readFileSync("fail.txt")();
     expect(isLeft(result)).toBeTruthy();
     expect(getOrElse(() => "fail")(result)).toBe("fail");
-    expect((result as Left<unknown>).left).toBeInstanceOf(ReadFileSyncError);
+    expect((result as Left<unknown>).left).toBeInstanceOf(
+      ReadFileSyncException
+    );
     expect(
-      ((result as Left<unknown>).left as ReadFileSyncError).message
+      ((result as Left<unknown>).left as ReadFileSyncException).message
     ).toContain(" is not found");
   });
 });

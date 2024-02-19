@@ -1,7 +1,7 @@
 import { IOEither, tryCatch } from "fp-ts/lib/IOEither";
 import * as fs from "fs";
 
-export class ReadFileSyncError extends Error {}
+export class ReadFileSyncException extends Error {}
 
 /**
  * readFileSync 함수는 실패하는 경우도 존재하고,
@@ -11,9 +11,9 @@ export class ReadFileSyncError extends Error {}
  */
 export function readFileSync(
   path: string
-): IOEither<ReadFileSyncError, string> {
+): IOEither<ReadFileSyncException, string> {
   return tryCatch(
     () => fs.readFileSync(path, "utf8"),
-    (reason) => new ReadFileSyncError(String(reason))
+    (reason) => new ReadFileSyncException(String(reason))
   );
 }
