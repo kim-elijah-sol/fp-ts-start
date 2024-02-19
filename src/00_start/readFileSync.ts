@@ -9,7 +9,9 @@ export class ReadFileSyncError extends Error {}
  *
  * readFileSync 로 파일 읽기에 성공 했을 때 파일의 내용을 반환하므로 string 타입을 사용했습니다.
  */
-export function readFileSync(path: string): IOEither<Error, string> {
+export function readFileSync(
+  path: string
+): IOEither<ReadFileSyncError, string> {
   return tryCatch(
     () => fs.readFileSync(path, "utf8"),
     (reason) => new ReadFileSyncError(String(reason))
