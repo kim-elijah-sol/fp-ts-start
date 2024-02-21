@@ -1,4 +1,4 @@
-interface Eq<A> {
+export interface Eq<A> {
   /**
    * `x` 와 `y` 가 같은 경우 `true` 를 반환한다.
    *
