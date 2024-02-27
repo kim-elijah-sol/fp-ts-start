@@ -6,4 +6,7 @@ import { Ord } from "./Ord";
 export const min =
   <A>(O: Ord<A>): ((x: A, y: A) => A) =>
   (x, y) =>
-    O.compare(x, y) === -1 ? x : y;
+    /**
+     * `x` 와 `y` 가 같은 경우 첫 번째 인자인 x 를 반환할 수 있도록 y 가 큰 경우에만 y 를 반환합니다.
+     */
+    O.compare(x, y) === 1 ? y : x;
