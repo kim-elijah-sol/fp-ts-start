@@ -1,3 +1,4 @@
+import { fromCompare } from "fp-ts/lib/Ord";
 import { Ord } from "./Ord";
 
 /**
@@ -12,3 +13,10 @@ export const ordNumber: Ord<number> = {
   equals: (x, y) => x === y,
   compare: (x, y) => (x < y ? -1 : x > y ? 1 : 0),
 };
+
+/**
+ * fromCompare 헬퍼 함수로 Ord 를 쉽게 정의할 수 있습니다.
+ */
+export const _ordNumber: Ord<number> = fromCompare((x, y) =>
+  x < y ? -1 : x > y ? 1 : 0
+);
