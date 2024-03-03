@@ -2,7 +2,7 @@ import { struct } from "fp-ts/lib/Semigroup";
 import { Semigroup } from "./Semigroup";
 import { semigroupSum } from "./semigroupSum";
 
-type Point = {
+export type Point = {
   x: number;
   y: number;
 };
