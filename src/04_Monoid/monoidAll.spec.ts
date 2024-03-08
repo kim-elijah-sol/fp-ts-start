@@ -10,5 +10,10 @@ describe("monoidAll", () => {
 
     expect(monoidAll.concat(x, monoidAll.empty)).toBe(x);
     expect(monoidAll.concat(monoidAll.empty, x)).toBe(x);
+
+    const x2 = false;
+
+    expect(monoidAll.concat(x2, monoidAll.empty)).toBe(x2);
+    expect(monoidAll.concat(monoidAll.empty, x2)).toBe(x2);
   });
 });
