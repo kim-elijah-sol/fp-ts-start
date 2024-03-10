@@ -2,7 +2,7 @@ import { struct } from "fp-ts/lib/Monoid";
 import { Monoid } from "./Monoid";
 import { monoidSum } from "./monoidSum";
 
-type Point = {
+export type Point = {
   x: number;
   y: number;
 };
